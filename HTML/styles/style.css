@@ -27,8 +27,10 @@ font-weight:bold;
 }
 h1#pagetitle{
 	font-size:200%;
-	line-height:160%;
-	margin:1em 0;
+	line-height:150%;
+	margin:1.5em 0 1.2em;
+	border-left: #27aa4f 4px solid;
+	padding-left: 0.6em;
 }
 a:link,a:visited{
 color:#19b28c;
@@ -283,13 +285,21 @@ div#searchnav .btn.decide,aside.searcharea .btn.decide{
 aside.searcharea .btn.decide{
 	display: inline-block;
 }
-.modalbox fieldset{
+.modalbox{
+	border-radius: 6px;
+}
+#searchnavopt fieldset,div.modalbox div.checklist{
 	 border:1px solid #eee;
-	 padding:2.5em 1em 1em;
 	 margin-top:1em;
 	 display:block;
 	 position:relative;
  }
+#searchnavopt fieldset{
+	 padding:2.5em 1em 1em;
+}
+div.modalbox div.checklist{
+	 padding:1em;
+}
  .modalbox fieldset legend, .modalbox fieldset label{
 	 font-size:140%;
 	 display:block;
@@ -316,6 +326,27 @@ aside.searcharea .btn.decide{
 	 z-index: 2;
 	 margin:1em auto 0;
 }
+div#divml h3,div#divsend h3{
+	font-size: 140%;
+	margin-top: 0;
+}
+div.modalbox div.checklist{
+	overflow:auto;
+	max-height: 400px !important; 
+}
+div#divml ul input, div #divsend ul input{
+	float: left;
+	display: block;
+	margin: 0.4em ;
+}
+div#divml ul label, div#divsend ul label{
+	display: block;
+	font-size: 120%;
+	padding: 0.1em inherit;
+}
+div#divml label:after, div#divsend label:after{
+	clear: both;
+}
 
 
   /* search element -----------------------------------  */
@@ -323,11 +354,17 @@ aside.searcharea .btn.decide{
 	aside.searcharea{
 		text-align: center;
 	}
-	aside.searcharea div.searchoption{
+	aside.searcharea div.searchbasic{
+		width:550px;
+		margin: auto;
+		padding-left: 45px;
+		background:url(../images/common/i-search2.gif) no-repeat left center;
+	}
+	aside.searcharea div,aside.searcharea input{
 		text-align: left;
 	}
-	div#searchnav h2,aside.searcharea h2{
-		background:url(../images/common/i-search.gif) no-repeat top left;
+	div#searchnav h2{
+		background:url(../images/common/i-search.gif) no-repeat left center;
 		width:41px;
 		min-height:29px;
 		line-height:100%;
@@ -346,6 +383,13 @@ aside.searcharea .btn.decide{
 	aside.searcharea div.searchoption h3, aside.searcharea div.searchoption fieldset{
 		display: inline-table;
 	}
+	aside.searcharea div.searchoption{
+		padding:1em 1.5em;
+		margin-bottom: 1em;
+	}
+	aside.searcharea div.searchoption div.row{
+		margin-bottom: 0;
+	}
 	aside.searcharea div.searchoption h3{
 		font-size: 120%;
 		font-weight: bold;
@@ -359,6 +403,14 @@ aside.searcharea .btn.decide{
 		background: #fff;
 		padding: 1em;
 	}
+	aside.searcharea div.searchoption div.optselect ul{
+		font-size: 90%;
+		padding-bottom: 1em;
+	}
+	aside.searcharea div.searchoption div.optselect li{
+		line-height: 140%;
+		padding-bottom: 0.4em;
+	}
 	aside.searcharea,div.archive,div.archive article,div.archive article div.span-9,div.archive article div.span-3,aside.searcharea div.searchoption,aside.searcharea div.searchoption div.optselect{
 		box-sizing:border-box;
 	}
@@ -369,6 +421,28 @@ aside.searcharea .btn.decide{
 		border-radius: 4px;
 		margin-bottom:1em;
 		padding:1em;
+	}
+	aside.searcharea div.searchoption div.optselect div.optbtn{
+		text-align: right;
+		width: 100%;
+		box-sizing: border-box;
+	}
+	aside.searcharea div.searchoption div.optselect div.optbtn a{
+		width: 100%;
+		box-sizing: border-box;
+		display: block;
+		color:#fff;
+		font-weight:bold;
+		text-decoration:none;
+		padding:0.5em;
+		-webkit-border-radius: 4px;
+		border-radius: 4px;
+		background:#5bb3e6 url(../images/common/bg-gr.gif) repeat;
+	}
+	aside.searcharea div.searchoption div.optselect div.optbtn a:hover{
+		opacity: 0.7;
+		filter: alpha(opacity=70);
+		-moz-opacity: 0.7;
 	}
 	div.archive{
 		margin-bottom:5em;
@@ -394,22 +468,50 @@ aside.searcharea .btn.decide{
 	div.archive article div.span-9 p{
 		padding-top:0.5em;
 		line-height:150%;
+		margin-bottom: 0;
 	}
 	div.archive article h3 a{
 		color:#111;
 	}
+	div.archive article div.row, div.archive article div.span-3 p{
+		margin-bottom: 0;
+	}
 	div.archive article div.span-9{
 		padding-left: 1em;
+		margin-bottom: 0;
 	}
 	div.archive article div.span-3{
 		border-left:solid 3px #ededed;
 		padding-left: 1em;
 		margin-top: 0.5em;
+		margin-bottom: 0;
 	}
 	
-	
-	
-	
+	div.pager{
+		margin-top: 2em !important;
+		margin-bottom: 0 !important;
+	}
+	div.pager div.span-9,div.pager div.span-3{
+		font-size: 120%;
+		font-weight: bold;
+	}	
+	div.pager div.span-9 a{
+		display: inline-block;
+		padding: 0.6em 0.8em;
+		background: #fff;
+		margin: 0 0.4em;
+	}	
+	div.pager div.span-9 a:nth-of-type(1){
+		margin-left: 1em;
+	}
+	div.pager div.span-3{
+		padding-top: 0.6em;
+		text-align: right;
+	}
+	div.pager a.current{
+		color:#111;
+		pointer-events: none;
+	}
 	
   
   /* Grid -----------------------------------  */
