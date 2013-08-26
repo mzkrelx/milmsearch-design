@@ -386,9 +386,11 @@ div#divml label:after, div#divsend label:after{
 	aside.searcharea div.searchoption{
 		padding:1em 1.5em;
 		margin-bottom: 1em;
+		box-sizing: border-box;-moz-box-sizing: border-box;
 	}
 	aside.searcharea div.searchoption div.row{
 		margin-bottom: 0;
+		box-sizing: border-box;-moz-box-sizing: border-box;
 	}
 	aside.searcharea div.searchoption h3{
 		font-size: 120%;
@@ -397,11 +399,13 @@ div#divml label:after, div#divsend label:after{
 	}
 	aside.searcharea div.searchoption.grid h3{
 		margin-top: 1em;
+		box-sizing: border-box;-moz-box-sizing: border-box;
 	}
 	aside.searcharea div.searchoption div.optselect{
 		font-size: 120%;
 		background: #fff;
 		padding: 1em;
+		box-sizing: border-box;-moz-box-sizing: border-box;
 	}
 	aside.searcharea div.searchoption div.optselect ul{
 		font-size: 90%;
@@ -425,11 +429,11 @@ div#divml label:after, div#divsend label:after{
 	aside.searcharea div.searchoption div.optselect div.optbtn{
 		text-align: right;
 		width: 100%;
-		box-sizing: border-box;
+		box-sizing: border-box;-moz-box-sizing: border-box;
 	}
 	aside.searcharea div.searchoption div.optselect div.optbtn a{
 		width: 100%;
-		box-sizing: border-box;
+		box-sizing: border-box;-moz-box-sizing: border-box;
 		display: block;
 		color:#fff;
 		font-weight:bold;
