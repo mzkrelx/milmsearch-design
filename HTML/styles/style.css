@@ -344,7 +344,7 @@ div#divml ul label, div#divsend ul label{
 	font-size: 120%;
 	padding: 0.1em inherit;
 }
-div#divml label:after, div#divsend label:after{
+div#divml li, div#divsend li{
 	clear: both;
 }
 
