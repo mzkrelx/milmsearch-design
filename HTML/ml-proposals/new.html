@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+        <meta name="keywords" content="" />
+        <meta name="description" content="" />
+    <link href="../images/favicon.ico" rel="shortcut icon" />
+    <link href="../styles/base.css" media="all" rel="stylesheet" />
+    <link href="../styles/style.css" media="all" rel="stylesheet" />
+    <link href="../styles/south-street/jquery-ui.css" media="all" rel="stylesheet" />
+        <meta property="og:title" content="" />
+        <meta property="og:description" content="" />
+        <meta property="og:url" content="http://xxx.com" />
+        <meta property="og:image" content="http://xxx.com/images/ogp.jpg" />
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+        <script type="text/javascript" src="../styles/html5shiv.js"></script>
+        <script type="text/javascript" src="../styles/footerFixed.js"></script>
+        <script type="text/javascript" src="../styles/jquery.leanModal.min.js"></script>
+        <script>
+            $(function() {
+                $( "#from" ).datepicker({
+                    defaultDate: "+1w",
+                    changeMonth: true,
+                    numberOfMonths: 1,
+                    onClose: function( selectedDate ) {
+                        $( "#to" ).datepicker( "option", "minDate", selectedDate );
+                    }
+                });
+                $( "#to" ).datepicker({
+                    defaultDate: "+1w",
+                    changeMonth: true,
+                    numberOfMonths: 1,
+                    onClose: function( selectedDate ) {
+                        $( "#from" ).datepicker( "option", "maxDate", selectedDate );
+                    }
+                });
+                $( "#from2" ).datepicker({
+                    defaultDate: "+1w",
+                    changeMonth: true,
+                    numberOfMonths: 1,
+                    onClose: function( selectedDate ) {
+                        $( "#to" ).datepicker( "option", "minDate", selectedDate );
+                    }
+                });
+                $( "#to2" ).datepicker({
+                    defaultDate: "+1w",
+                    changeMonth: true,
+                    numberOfMonths: 1,
+                    onClose: function( selectedDate ) {
+                        $( "#from" ).datepicker( "option", "maxDate", selectedDate );
+                    }
+                });
+            });
+        </script>
+        <script type="text/javascript">
+            $(function() {
+                    $( 'a[rel*=leanModal]').leanModal({
+                            top: 50,                     // モーダルウィンドウの縦位置を指定
+                            overlay : 0.5,               // 背面の透明度 
+                            closeButton: ".modal_close"  // 閉じるボタンのCSS classを指定
+                    });
+            }); 
+        </script>
+  </head>
+<body>
+
+<header>
+    <div class="contentarea">
+        <h1><a href="">Milm Search ver.0.2</a></h1>
+        <nav class="clearfix">
+            <ul class="sub">
+                <li><a href="">ヘルプ</a></li>
+                <li><a href="">お問い合わせ</a></li>
+            </ul>
+            <ul>
+                <li class="btn"><a href="">MLを登録する</a></li>
+                <li class="btn"><a href="">MLを探す・見る</a></li>
+            </ul>
+        </nav>
+    </div>  
+    <div id="searchnav">
+        <div class="contentarea clearfix">
+            <h2>メーリングリストを検索する</h2>
+            <form>
+                <input type="text" id="keywords" name="keywords" placeholder="キーワード" />
+                <fieldset class="dateselect">
+                    <legend>検索対象期間の指定</legend>
+                    <input name="from" type="text" id="from" size="10" />
+                    <p>〜</p>
+                    <input type="text" id="to" name="to" size="10" />
+                    <p>まで</p>
+                </fieldset>
+                <a rel="leanModal" href="#searchnavopt" class="arrowlink">詳細設定</a>
+                <div id="searchnavopt" class="modalbox">
+                    <h3>詳細設定</h3>
+                    <fieldset>
+                        <legend>検索対象</legend>
+                        <input name="mltitle" type="checkbox" id="mltitle" value="mltitle"><label for="mltitle">MLタイトル</label>
+                        <input name="mailtitle" type="checkbox" id="mailtitle" value="mailtitle" checked="checked"><label for="mailtitle">メールタイトル</label>
+                        <input name="mailtext" type="checkbox" id="mailtext" value="mailtext" checked="checked"><label for="mailtext">メール本文</label>
+                        <input name="sender" type="checkbox" id="sender" value="sender"><label for="sender">送信者</label>
+                    </fieldset>
+                    <div class="btn modal_close"><a href="#">閉じる</a></div>
+                </div>
+                <button type="submit" class="btn decide">検索する</button>
+            </form>
+        </div>
+    </div>
+</header>
+
+<div class="contentarea">
+    <section>
+      <h1 id="pagetitle">メーリングリストの登録申請</h1>
+  	  <div class="grid archive">
+          <div class="content">
+            <div class="img_flow row">
+              <h2>登録の流れ</h2>
+              <div class="f_arrow column span-4"><p>フォームから登録申請</p></div>
+              <div class="f_arrow column span-4"><p>運営チームによるML審査</p></div>
+              <div class="column span-4"><p>問題がなければ登録</p></div>
+            </div>
+            <p class="lead right">
+              <small>メーリングリスト登録の注意点について詳しくは…</small>
+              <a class="btn" href="/help">ヘルプ</a>
+            </p>
+            
+            <form action="/ml-proposals/confirm" method="POST" >
+              <table class="input">
+                <tbody>
+                <tr>
+                  <th>連絡先メールアドレス</th>
+                  <td>
+                    <p>審査後のご連絡が必要な方はご入力ください。</p>
+                    <input type="email" id="proposerEmail" name="proposerEmail" value="" >
+                    <span class="att">エラーメッセージ</span><br>
+                    <p>確認のため、再度ご入力ください。</p>
+                    <input type="email" id="proposerEmail2" name="proposerEmail2" value="" >
+                    <span class="att">エラーメッセージ</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th><span class="att">【必須】</span>メーリングリストのタイトル</th>
+                  <td>
+                    <input type="text" id="mlTitle" name="mlTitle" value="" >
+                    <span class="att">エラーメッセージ</span> 
+                  </td>
+                </tr>
+                <tr>
+                  <th><span class="att">【必須】</span>メーリングリスト公開アーカイブのURL</th>
+                  <td>
+                    <input type="url" id="archiveURL" name="archiveURL" value="" >
+                    <span class="att">エラーメッセージ</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th>ご質問やコメントをどうぞ</th>
+                  <td>
+                    <textarea id="message" name="message" ></textarea>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <div class="check_rule">
+                <label>
+                  <input type="checkbox" id="agreement" name="agreement" value="on"  ><span>利用規約に同意する…</span>
+                  <span class="att"></span>
+                </label>
+                <a href="/rule" target="_blank">利用規約</a>
+              </div>
+              <div class="decidearea">
+                <a class="btn large left" href="/">トップページへ</a>
+                <input class="btn decide large right" type="submit" value="確認する">
+              </div>    
+            </form>
+          </div>
+      </div>
+        
+    </section>
+
+</div>
+
+<footer id="footer" class="clearfix">
+    <div class="contentarea">
+        <div class="pagetop"><a href="">pagetop</a></div>
+        <nav>
+            <ul>
+                <li><a href="">お問い合わせ</a></li>
+                <li><a href="">利用規約</a></li>
+                <li><a href="">プライバシーポリシー</a></li>
+            </ul>
+        </nav>
+        <p>&copy;Milm Search</p>
+    </div>
+</footer>
+
+</body>
