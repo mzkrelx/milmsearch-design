@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>MilmSearch</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="images/favicon.ico" rel="shortcut icon" />
+    <link href="./style/style.css" media="all" rel="stylesheet" />
+    <link href="./style/normalize.css" media="all" rel="stylesheet" />
+    <link href="./js/south-street/jquery-ui.css" media="all" rel="stylesheet" />
+  </head>
+  <body>
+  
+    <header>
+      <h1><a href="/"><img src="./images/head-logo.png" alt="Milm Search"></a></h1>
+      <nav>
+        <ul class="sub">
+          <li><a href="/help">ヘルプ</a></li>
+          <li><a href="/inquiry">お問い合わせ</a></li>
+        </ul>
+        <ul class="main">
+          <li class="fontawesome-envelope"><a href="/ml-proposals/new">MLを登録する</a></li>
+          <li class="fontawesome-search"><a href="/mls?count=10">MLを探す・見る</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+    <div class="wrapcont">
+      <nav id="searcharea">
+        <form action="/search" method="GET" >
+          <h2>メーリングリストを検索する</h2>
+          <input id="keywords_nav" type="text" name="keywords" placeholder="キーワード" />
+          <input id="from_date_nav" type="text" name="fromDate" size="10" value="01/01/2012"/><i class="dateicon"></i>
+          <p>〜</p>
+          <input id="to_date_nav" type="text" name="toDate" size="10" value="01/25/2014" /><i class="dateicon"></i>
+          <p>まで</p>
+          <p><a rel="leanModal" href="#searchnavopt" class="arrowlink">詳細設定</a></p>
+          <div id="searchnavopt" class="modalbox">
+            <h3>詳細設定</h3>
+              <!-- デフォルトで、「メールタイトル」と「メール本文」がチェック済み -->
+              <input id="mltitle_nav" name="fields[]" type="checkbox" value="mltitle">
+              <label for="mltitle_nav">MLタイトル</label>
+              <input id="subject_nav" name="fields[]" type="checkbox" value="subject" checked="checked">
+              <label for="subject_nav">メールタイトル</label>
+              <input id="body_nav" name="fields[]" type="checkbox" value="body" checked="checked">
+              <label for="body_nav">メール本文</label>
+              <input id="from_nav" name="fields[]" type="checkbox" value="from">
+              <label for="from_nav">送信者</label>
+            <div class="btn modal_close"><a href="#">閉じる</a></div>
+           </div>
+           <button type="submit" class="btn">検索する</button>
+        </form>
+      </nav>
+      
+      <section>
+        <h2>ヘルプ</h2>
+        <article>
+          <h3>MilmSearchって何？</h3>
+          <p>
+            Web上に公開されているメーリングリストのアーカイブを収集し、検索することができるサービスです。<br>
+            登録されているメーリングリストを一覧表示して、探している情報が載っていそうなメーリングリストを探すことができます。
+          </p>
+        </article>
+        <article>
+          <h3>私のMLも登録することができるの？</h3>
+          <p>
+            公開メーリングリストを主催されているのであれば、ぜひ<a href="/ml-proposals/new">登録申請</a>を！<br>
+            お申込みいただいたメーリングリストについて、運営チームで審査の後、MilmSearchに登録させていただきます。<br>
+            審査結果のご連絡までは、数日かかることがあります。<br>
+            ※現在、Mailmanでアーカイブされているメーリングリストのみに対応しています。<br>
+            　その他のアーカイブソフトをご利用の方は、登録申請か<a href="/inquiry">お問い合わせ</a>から、ご利用のソフト名を教えてください。
+          </p>
+        </article>
+        <article>
+          <h3>審査に落ちて登録できなかったけど、なぜ？</h3>
+          <p>
+            せっかく申請いただいておきながら恐縮ですが、以下の理由にあてはまる場合、登録ができない場合がございます。<br>
+            1.メーリングリストで、MilmSearchが未対応のアーカイブソフトをご利用の場合。<br>
+            2.メーリングリスト内で公序良俗に反する話題を扱っている場合。<br>
+            申し訳ございませんが、ご了承いただけますようよろしくお願いいたします。
+          </p>
+        </article>
+      </section>
+      
+      </section>
+      <a class="pagetop" href="#">PAGE TOP</a>
+    </div>
+  
+    <footer>
+      <nav>
+        <ul>
+          <li><a href="/inquiry">お問い合わせ</a></li>
+          <li><a href="/rule">利用規約</a></li>
+          <li><a href="/policy">プライバシーポリシー</a></li>
+        </ul>
+      </nav>
+      <small>&copy;Milm Search</small>
+    </footer>
+
+
+    <script type="text/javascript" src="./js/respond.src.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/smoothscroll.js"></script>
+    <script type="text/javascript" src="./js/jquery.leanModal.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <!--[if lt IE 9]>
+      <script src="./js/html5shiv.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(function() {
+        $( "#from_date_nav" ).datepicker({
+          defaultDate: "+1w",
+          changeMonth: true,
+          numberOfMonths: 1,
+          onClose: function( selectedDate ) {
+            $( "#to_date_nav" ).datepicker( "option", "minDate", selectedDate );
+          }
+        });
+        $( "#to_date_nav" ).datepicker({
+          defaultDate: "+1w",
+          changeMonth: true,
+          numberOfMonths: 1,
+          onClose: function( selectedDate ) {
+            $( "#from_date_nav" ).datepicker( "option", "maxDate", selectedDate );
+          }
+        });
+        $( "#from_date" ).datepicker({
+          defaultDate: "+1w",
+          changeMonth: true,
+          numberOfMonths: 1,
+          onClose: function( selectedDate ) {
+            $( "#to_date" ).datepicker( "option", "minDate", selectedDate );
+          }
+        });
+        $( "#to_date" ).datepicker({
+          defaultDate: "+1w",
+          changeMonth: true,
+          numberOfMonths: 1,
+          onClose: function( selectedDate ) {
+            $( "#from_date" ).datepicker( "option", "maxDate", selectedDate );
+          }
+        });
+      });
+      $(function() {
+          $( 'a[rel*=leanModal]').leanModal({
+              top: 50,                     // モーダルウィンドウの縦位置を指定
+              overlay : 0.5,               // 背面の透明度 
+              closeButton: ".modal_close"  // 閉じるボタンのCSS classを指定
+          });
+      }); 
+    </script>
+  </body>
+</html>

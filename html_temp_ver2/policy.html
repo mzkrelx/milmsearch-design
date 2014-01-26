@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>MilmSearch</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="images/favicon.ico" rel="shortcut icon" />
+    <link href="./style/style.css" media="all" rel="stylesheet" />
+    <link href="./style/normalize.css" media="all" rel="stylesheet" />
+    <link href="./js/south-street/jquery-ui.css" media="all" rel="stylesheet" />
+  </head>
+  <body>
+  
+    <header>
+      <h1><a href="/"><img src="./images/head-logo.png" alt="Milm Search"></a></h1>
+      <nav>
+        <ul class="sub">
+          <li><a href="/help">ヘルプ</a></li>
+          <li><a href="/inquiry">お問い合わせ</a></li>
+        </ul>
+        <ul class="main">
+          <li class="fontawesome-envelope"><a href="/ml-proposals/new">MLを登録する</a></li>
+          <li class="fontawesome-search"><a href="/mls?count=10">MLを探す・見る</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+    <div class="wrapcont">
+      <nav id="searcharea">
+        <form action="/search" method="GET" >
+          <h2>メーリングリストを検索する</h2>
+          <input id="keywords_nav" type="text" name="keywords" placeholder="キーワード" />
+          <input id="from_date_nav" type="text" name="fromDate" size="10" value="01/01/2012"/><i class="dateicon"></i>
+          <p>〜</p>
+          <input id="to_date_nav" type="text" name="toDate" size="10" value="01/25/2014" /><i class="dateicon"></i>
+          <p>まで</p>
+          <p><a rel="leanModal" href="#searchnavopt" class="arrowlink">詳細設定</a></p>
+          <div id="searchnavopt" class="modalbox">
+            <h3>詳細設定</h3>
+              <!-- デフォルトで、「メールタイトル」と「メール本文」がチェック済み -->
+              <input id="mltitle_nav" name="fields[]" type="checkbox" value="mltitle">
+              <label for="mltitle_nav">MLタイトル</label>
+              <input id="subject_nav" name="fields[]" type="checkbox" value="subject" checked="checked">
+              <label for="subject_nav">メールタイトル</label>
+              <input id="body_nav" name="fields[]" type="checkbox" value="body" checked="checked">
+              <label for="body_nav">メール本文</label>
+              <input id="from_nav" name="fields[]" type="checkbox" value="from">
+              <label for="from_nav">送信者</label>
+            <div class="btn modal_close"><a href="#">閉じる</a></div>
+           </div>
+           <button type="submit" class="btn">検索する</button>
+        </form>
+      </nav>
+      
+      <section>
+        <h2>プライバシーポリシー</h2>
+        <article>
+          <h3>1. プライバシーポリシーの適用範囲</h3>
+          <p>
+            1) プライバシーポリシーは、MilmSearch(以下「当サイト」という)においてMilmSearchプロジェクト(以下「当プロジェクト」という)が利用者より収集する個人情報の取扱いに関して適用されます。
+          </p>
+          <p>
+            2) 当サイトにおいて、当プロジェクトの広告主等が主体となって、その掲載した広告の中でアンケート等を実施し、利用者の個人情報を収集する場合があります。<br>
+            この場合は、当プロジェクトは、メディアとして広告枠を広告主に提供しているにすぎず、広告主が個人情報の収集・利用・保有・管理等の主体となります。<br>
+            広告主は、独自のプライバシーポリシー等を定め、当該プライバシーポリシー等に従い個人情報を取り扱う独立した事業者であり、このような形で収集された個人情報については、当プロジェクトは保有を行わず、従ってプライバシーポリシーは適用されません。
+          </p>
+        </article>
+        <article>
+          <h3>2. 用語の定義</h3>
+          <p>
+            プライバシーポリシーにおいて個人情報とは、個人情報保護法に定める個人情報（生存する個人に関する情報であり、特定の個人を識別可能なものを言い、氏名、住所、電話番号等を含みます。）並びに特定の個人と結びついて使用されるメールアドレス、パスワードなどの情報及びそれらと一体となった趣味、家族構成、年齢その他の個人に関する属性情報をいうものとします。
+          </p>
+        </article>
+        <article>
+          <h3>3. 収集する個人情報及び収集方法</h3>
+          <p>
+            1) 利用者が当サイトを利用するために、以下の情報をご提供いただく場合があります。<br>
+            ・氏名<br>
+            ・メールアドレス<br>
+            ・生年月日<br>
+            ・その他当サイト内に当プロジェクトが定める入力フォームに利用者が入力する情報
+          </p>
+          <p>
+            2) 利用者が当サイトの利用において、他のサービスと連携を許可することにより、当該他のサービスから情報をご提供いただく場合があります。
+          </p>
+          <p>
+          3) 利用者が当サイトを利用するにあたって、以下の情報を収集する場合があります。<br>
+          ・端末情報<br>
+          ・ログ情報<br>
+          ・Cookie及び匿名ID<br>
+          ・その他当サイト運営のために必要な情報で、妥当な方法で取得可能な情報
+          </p>
+        </article>
+        <article>
+          <h3>4. 利用目的</h3>
+          <p>
+            本サービスの提供にかかわる個人情報の具体的な利用目的は以下のとおりです。<br>
+            ・本サービスに関する登録の受付、本人確認、本サービスの提供、意地、保護及び改善のため<br>
+            ・本サービスに関するご案内、お問い合わせなどへの対応のため<br>
+            ・本サービスに関する当サイトの規約、ポリシー等に違反する行為に対する対応のため<br>
+            ・本サービスの利用に関する統計データを個人を識別できない形式に加工して作成するため<br>
+            ・本サービスまたは第三者の広告の配信または表示のため<br>
+            ・マーケティングに利用するため<br>
+            ・上記の利用目的に付随する利用目的のため
+          </p>
+        </article>
+        <article>
+          <h3>5. 個人情報の第三者への開示</h3>
+          <p>
+            当プロジェクトは、原則として、利用者の個人情報を第三者に開示することはありません。<br>
+            但し、以下のような場合、その必要性の有無を十分検討した上で、個人情報を開示することがあります。<br>
+            ・当プロジェクトが利用目的の達成に必要な範囲内において個人情報の取扱いの全部または一部を委託する場合<br>
+            ・合併その他の事由による事業の承継に伴って個人情報が提供される場合<br>
+            ・国の機関もしくは地方公共団体またはその委託を受けた者が法令の定める事務を推敲することに対して協力する必要がある場合であって、利用者の移行を得ることによって当該事務の遂行に  支障をおよぼすおそれがある場合<br>
+            ・その他、個人情報保護法とその他の法令で定められる場合
+          </p>
+        </article>
+        <article>
+          <h3>6. 個人情報の開示</h3>
+          <p>
+            当プロジェクトは、利用者から、個人情報保護法の定めに基づき個人情報の開示を求められたときは、利用者ご本人からのご請求であることを確認した上で、利用者に対し、遅滞なく開示を行います。(当該個人情報が存在しないときにはその旨を通知いたします。)<br>
+            但し、個人情報保護法その他の法令により、当プロジェクトが開示の義務を負わない場合は、この限りではありません。<br>
+            なお、個人情報の開示につきましては、手数料をいただく場合があります。
+          </p>
+        </article>
+        <article>
+          <h3>7. 個人情報の訂正及び利用停止等</h3>
+          <p>
+            利用者は、自分の個人情報の開示を受け、訂正、追加又は削除を要求することができます。<br>
+            個人情報の開示・訂正、追加又は削除に関する要望・お問い合わせは、以下のEmailアドレスまでご連絡下さい。<br>
+            webmaster@milmsearch.org
+          </p>
+        </article>
+        <article>
+          <h3>8.プライバシーポリシーの変更及び通知</h3>
+          <p>
+            当プロジェクトは、プライバシーポリシーを、事前の予告なく変更することがありますので、当サイト利用の際には、本ページの最新の内容をご確認ください。
+          </p>
+        </article>
+      </section>
+      
+      </section>
+      <a class="pagetop" href="#">PAGE TOP</a>
+    </div>
+  
+    <footer>
+      <nav>
+        <ul>
+          <li><a href="/inquiry">お問い合わせ</a></li>
+          <li><a href="/rule">利用規約</a></li>
+          <li><a href="/policy">プライバシーポリシー</a></li>
+        </ul>
+      </nav>
+      <small>&copy;Milm Search</small>
+    </footer>
+
+
+    <script type="text/javascript" src="./js/respond.src.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/smoothscroll.js"></script>
+    <script type="text/javascript" src="./js/jquery.leanModal.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <!--[if lt IE 9]>
+      <script src="./js/html5shiv.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(function() {
+        $( "#from_date_nav" ).datepicker({
+          defaultDate: "+1w",
+          changeMonth: true,
+          numberOfMonths: 1,
+          onClose: function( selectedDate ) {
+            $( "#to_date_nav" ).datepicker( "option", "minDate", selectedDate );
+          }
+        });
+        $( "#to_date_nav" ).datepicker({
+          defaultDate: "+1w",
+          changeMonth: true,
+          numberOfMonths: 1,
+          onClose: function( selectedDate ) {
+            $( "#from_date_nav" ).datepicker( "option", "maxDate", selectedDate );
+          }
+        });
+        $( "#from_date" ).datepicker({
+          defaultDate: "+1w",
+          changeMonth: true,
+          numberOfMonths: 1,
+          onClose: function( selectedDate ) {
+            $( "#to_date" ).datepicker( "option", "minDate", selectedDate );
+          }
+        });
+        $( "#to_date" ).datepicker({
+          defaultDate: "+1w",
+          changeMonth: true,
+          numberOfMonths: 1,
+          onClose: function( selectedDate ) {
+            $( "#from_date" ).datepicker( "option", "maxDate", selectedDate );
+          }
+        });
+      });
+      $(function() {
+          $( 'a[rel*=leanModal]').leanModal({
+              top: 50,                     // モーダルウィンドウの縦位置を指定
+              overlay : 0.5,               // 背面の透明度 
+              closeButton: ".modal_close"  // 閉じるボタンのCSS classを指定
+          });
+      }); 
+    </script>
+  </body>
+</html>
